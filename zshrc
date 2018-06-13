@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/riza/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -93,6 +93,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# to fix agnoster prompt
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
 
 # disabled after oh-my-zsh
 #export CLICOLOR=1
@@ -113,12 +119,18 @@ function removeFromPath() {
   export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="$1${PATH:+":$PATH"}"
+    fi
+}
 
-export UCARE_DIR=/Users/riza/Documents/UCARE
+
+export UCARE_DIR=$HOME/Documents/UCARE
 export DIRPAPERS=$UCARE_DIR/DIR-PAPERS
 export RESEARCH=$UCARE_DIR/blogs
 export JIRA_REPO=$UCARE_DIR/jira-study-db-svnrepo
-export ECLIPSE_WORKSPACE=/Users/riza/Documents/workspace
+export ECLIPSE_WORKSPACE=$HOME/Documents/workspace
 export EDITOR=vim
 export DOTFILES=~/dotfiles
 #export TEXINPUTS=~/pgfplots//:
@@ -129,6 +141,8 @@ alias e='emacs'
 alias m='make'
 alias mall='make all'
 alias diff='colordiff'
+alias reload='source ~/.zshrc'
+alias zshrc='$EDITOR ~/.zshrc'
 
 # git aliases
 alias gits='git status'
@@ -148,12 +162,10 @@ alias cobugs='cd $JIRA_REPO/special-bugs/co-cascadingOutage'
 alias cocode='cd $ECLIPSE_WORKSPACE/cobe'
 alias candidacy='cd $UCARE_DIR/riza-candidacy-exam'
 
-# to fix agnoster prompt
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
+
+# macports
+pathadd /opt/local/sbin
+pathadd /opt/local/bin
 
 # source local zshrc
 if [ -f ~/.zshrc_local ]; then
