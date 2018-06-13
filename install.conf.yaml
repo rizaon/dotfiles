@@ -1,3 +1,5 @@
-- clean: []
-- link: {}
+- clean: [~]
+- link:
+  ~/.bin:
+  ~/.zshrc:
 - shell: []

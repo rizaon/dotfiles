@@ -1,0 +1,36 @@
+## open a blog file. I have one per project
+
+#!/bin/bash
+
+PROJECT=$1.blog
+MODE=$2
+
+PROJECT_FILE=$RESEARCH/$PROJECT
+
+## if -l, just list my blogs
+
+if [ "$1" == "-l" ]; then
+	echo "Available blogs:"
+	ls -li $RESEARCH
+	exit
+fi
+
+## if not found, then exit
+
+if [ ! -f $PROJECT_FILE ]; then
+	echo "[BLOG] $PROJECT_FILE does not exists!"
+	exit
+fi
+
+## otherwise open, depends on mode
+
+case $MODE in 
+    -v)
+          echo "[BLOG] Opening in visual mode with visual-editor"
+          visual-editor $PROJECT_FILE 
+          ;;
+     *)
+          echo "[BLOG] Opening in bash mode with editor"
+          editor $PROJECT_FILE 
+          ;;
+esac
