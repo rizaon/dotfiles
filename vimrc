@@ -10,6 +10,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" theme
+Plugin 'altercation/vim-colors-solarized'
+
 " for markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -24,12 +27,18 @@ let g:vim_markdown_folding_disabled = 1
 
 " my own setting
 filetype plugin indent on
-syntax on
+syntax enable
 set hlsearch
 set number
 set ruler
 autocmd Filetype java setlocal tabstop=2
 setlocal textwidth=80
+
+" Solarized stuff
+let g:solarized_termtrans = 1
+set background=dark
+colorscheme solarized
+
 
 " escape shortcut
 imap jj <Esc>
