@@ -12,6 +12,6 @@ fi
 
 git commit -m "$*"
 
-git log --stat -n 1
+git log --stat --no-pager -n 1
 
 git status
