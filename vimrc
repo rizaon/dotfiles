@@ -27,8 +27,9 @@ filetype plugin indent on
 syntax on
 set hlsearch
 set number
+set ruler
 autocmd Filetype java setlocal tabstop=2
-setlocal textwidth=70
+setlocal textwidth=80
 
 " escape shortcut
 imap jj <Esc>
