@@ -11,4 +11,5 @@
     ~/.zshrc:
     ~/bin:
 
-- shell: []
+- shell:
+    - [git submodule update --init --depth 1 --recursive, Installing submodules]
