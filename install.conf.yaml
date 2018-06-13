@@ -6,6 +6,7 @@
 
 - link:
     ~/.emacs:
+    ~/.emacs.path:
     ~/.gitconfig:
     ~/.oh-my-zsh:
     ~/.vim:
