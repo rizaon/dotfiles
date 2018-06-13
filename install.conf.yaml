@@ -1,5 +1,11 @@
-- clean: [~]
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
 - link:
-  ~/.bin:
-  ~/.zshrc:
+    ~/bin:
+    ~/.zshrc:
+
 - shell: []
