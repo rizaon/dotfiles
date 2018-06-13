@@ -1,0 +1,9 @@
+#!/bin/bash
+
+files=`ls *.pdf`
+
+set -x
+pdftk $files cat output /tmp/allCutPages.pdf
+set +x
+
+rm -f out-*.pdf

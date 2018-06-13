@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# GIT add all updated and clean trailing spaces
+
+git add -u .
+
+against=HEAD
+for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | cut -f1 -d: | uniq` ; do
+   echo Cleaning file $FILE...
+   # Fix them!
+   sed -i '' -e's/[[:space:]]*$//' "$FILE"
+   # git add "$FILE"
+done
+
+git add -u .
+
+git status

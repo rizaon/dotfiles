@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# SVN Commit message
+
+if [ $# == 0 ]; then 
+    echo ""
+    echo "  Use : svnc <commit message in one line> "
+    echo "  Ex  : svnc I added some things "
+    echo ""
+    exit
+fi
+
+svn ci --message "$USER: $*"
+
+svn log -r HEAD
+
+svn st

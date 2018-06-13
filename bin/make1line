@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# put this in your ~/bin/
+# run:     makeline <file>
+# example: make1line abstract.txt
+# output is in: /tmp/oneline.txt
+# this script will pop up textedit
+
+
+if [ $# == 0 ]; then
+    echo "make1line --silent <file>"
+    echo "make1line <file>"
+    exit
+fi
+
+silent=0
+if [ "$1" == "--silent" ]; then
+    silent=1
+    shift
+fi
+
+
+awk -F"ABCDEFGH" ' \
+BEGIN { \
+  last="0"; \
+} \
+(1){ \
+  if ($1 == "") { \
+    if (last=="c") printf("\n\n"); \
+    else printf("\n"); \
+    last = "n"; \
+  } \
+  else { 
+    printf("%s ", $1); \
+    last = "c"; \
+  } \
+} \
+' $1  >  /tmp/oneline.txt
+
+
+
+if [ ! $silent -eq 1 ]; then
+    textedit /tmp/oneline.txt &
+fi
+
+
+cat /tmp/oneline.txt
+
+
+echo ""
+echo "  output is in /tmp/oneline.txt"
+echo ""
+

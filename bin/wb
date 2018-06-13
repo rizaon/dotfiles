@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# PUT THIS FILE IN YOUR $HOME/bin/
+# MAKE SURE YOUR .cshrc or .bashrc add ~/bin/ to your $PATH
+
+if [ $# != 1 ];then
+    echo " HOW TO USE: wb <key>"
+    echo " EXAMPLES: wb cnn (or) wb gmail "
+    exit
+fi
+
+while read -r line
+do
+     key=`echo $line | awk '{print $1;}' `
+     url=`echo $line | awk '{print $2;}' `
+
+     if [ "$key" == "$1" ]; then
+         echo ""
+         echo "  found $1, opening: $url"
+         echo ""
+         # YOU MUST HAVE ~/bin/browser pointing to your favorite
+         # browser (e.g. /Aplications/Firefox.app or /usr/sbin/firefox)
+         $HOME/bin/browser $url
+        exit
+     fi
+# This script is reading this file 
+done < $HOME/bin/wb
+
+echo ""
+echo "  $1 not found"
+echo ""
+
+exit
+
+# this script reads itself, just add key and link below
+
+# KEYWORD  LINK 
+
+fslow https://drive.google.com/drive/u/0/folders/0B6i20ubAQWoVTExIY3A1WjNmMms
+ethbugs http://people.cs.uchicago.edu/~huanke/dc/eth.html
+skype https://web.skype.com/en/
+dblp http://dblp.org/search/index.php
+gmail http://www.gmail.com/
+gcal http://www.google.com/calendar
+
+
+# NOTE THAT if at one point your keywords are too many,
+# you can always copy this script into another file specific
+# for your project.  For example, cp ~/bin/wb to ~/bin/samc
+# (and don't forget change "< $HOME/bin/wb" to "< $HOME/bin/samc"
+# as well.  Then you can simply type "samc result", "samc todo", etc.
+# and keep "wb" for general links.
+

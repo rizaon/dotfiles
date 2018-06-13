@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# GIT Commit message
+
+if [ $# == 0 ]; then 
+    echo ""
+    echo "  Use : gitc <commit message in one line> "
+    echo "  Ex  : gitc I added some things "
+    echo ""
+    exit
+fi
+
+git commit -m "$*"
+
+git log --stat -n 1
+
+git status

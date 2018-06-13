@@ -1,0 +1,3 @@
+#!/bin/bash
+
+emacs ~/Documents/UCARE/todo.txt
