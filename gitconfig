@@ -1,0 +1,12 @@
+[alias]
+	update-submodules = submodule update --init --depth 1 --recursive
+	upgrade-submodules = submodule update --init --depth 1 --remote
+
+[user]
+	name = Riza Suminto
+	email = riza.on@gmail.com
+[push]
+	default = simple
+
+[include]
+	path = ~/.gitconfig_local

@@ -6,10 +6,13 @@
 
 - link:
     ~/.emacs:
+    ~/.gitconfig:
     ~/.vim:
     ~/.vimrc:
     ~/.zshrc:
     ~/bin:
 
 - shell:
-    - [git submodule update --init --depth 1 --recursive, Installing submodules]
+    - git submodule sync --recursive
+    # the following have to run after linking ~/.gitconfig
+    - [git update-submodules, Installing submodules]
