@@ -1,4 +1,5 @@
 [alias]
+	dh = diff HEAD
         pom = push origin master
 	update-submodules = submodule update --init --depth 1 --recursive
 	upgrade-submodules = submodule update --init --depth 1 --remote
