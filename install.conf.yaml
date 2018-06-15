@@ -9,6 +9,7 @@
     ~/.emacs.path:
     ~/.gitconfig:
     ~/.oh-my-zsh:
+    ~/.shell:
     ~/.vim:
     ~/.vimrc:
     ~/.zshrc:
