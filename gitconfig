@@ -4,9 +4,22 @@
 	update-submodules = submodule update --init --depth 1 --recursive
 	upgrade-submodules = submodule update --init --depth 1 --remote
 
+[color]
+	ui = auto
+
+[color "grep"]
+	match = cyan bold
+	selected = blue
+	context = normal
+	filename = magenta
+	linenumber = green
+	separator = yellow
+	function = blue
+
 [user]
 	name = Riza Suminto
 	email = riza.on@gmail.com
+
 [push]
 	default = simple
 
