@@ -2,16 +2,17 @@
 
 # GIT add all updated and clean trailing spaces
 
-git add -u .
+REPO_ROOT=$(git rev-parse --show-toplevel)
+git add -u $REPO_ROOT
 
 against=HEAD
 for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | cut -f1 -d: | uniq` ; do
-   echo Cleaning file $FILE...
+   echo Cleaning file $REPO_ROOT/$FILE...
    # Fix them!
-   sed -i '' -e's/[[:space:]]*$//' "$FILE"
+   sed -i '' -e's/[[:space:]]*$//' "$REPO_ROOT/$FILE"
    # git add "$FILE"
 done
 
-git add -u .
+git add -u $REPO_ROOT
 
 git status

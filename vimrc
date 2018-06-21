@@ -25,14 +25,17 @@ call vundle#end()            " required
 let g:vim_markdown_folding_disabled = 1
 
 
-" my own setting
+" indentation and syntax
 filetype plugin indent on
 syntax enable
-set hlsearch
+setlocal textwidth=80
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+autocmd Filetype java setlocal tabstop=2
+
+" appearances and behavior
 set number
 set ruler
-autocmd Filetype java setlocal tabstop=2
-setlocal textwidth=80
+set hlsearch
 
 " Solarized stuff
 let g:solarized_termtrans = 1
