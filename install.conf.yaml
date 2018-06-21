@@ -20,3 +20,4 @@
     - git submodule sync --recursive
     # the following have to run after linking ~/.gitconfig
     - [git update-submodules, Installing submodules]
+    - [git upgrade-submodules, Upgrade submodules]
