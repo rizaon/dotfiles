@@ -5,6 +5,7 @@ alias grep='grep --color'
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls'
+alias ltail='ls -1v | tail'
 
 alias e='vim'
 alias m='make'
