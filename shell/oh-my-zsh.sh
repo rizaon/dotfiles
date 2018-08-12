@@ -61,7 +61,7 @@ ZSH_THEME="agnoster"
 plugins=(
   git
   svn
-  laravel
+  laravel5
 )
 
 source $ZSH/oh-my-zsh.sh
