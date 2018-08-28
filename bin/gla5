@@ -36,7 +36,9 @@ export -f grepone
 find . -type f \
     \(  \
         \( -name "*.php" -o -name "*.blade" \) -and \
-        ! \( -path "./vendor/*" -o -path "./node_modules/*" \)  \
+        ! \( -path "./vendor/*" \
+            -o -path "./node_modules/*" \
+            -o -path "./storage/framework/*" \)  \
     \) \
     -exec bash -c "grepone {} $srcstr" \;
     # alternatively, without export -f

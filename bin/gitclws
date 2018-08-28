@@ -1,5 +1,7 @@
 #!/bin/sh
 
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
 against=HEAD
 #if git-rev-parse --verify HEAD >/dev/null 2>&1 ; then
 #   against=HEAD
@@ -9,9 +11,9 @@ against=HEAD
 #fi
 # Find files with trailing whitespace
 for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | cut -f1 -d: | uniq` ; do
-   echo Cleaning file $FILE...
+   echo Cleaning file $REPO_ROOT/$FILE...
    # Fix them!
-   sed -i '' -e's/[[:space:]]*$//' "$FILE"
+   sed -i '' -e's/[[:space:]]*$//' "$REPO_ROOT/$FILE"
    # git add "$FILE"
 done
 exit

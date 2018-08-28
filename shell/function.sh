@@ -27,3 +27,6 @@ gjava() {
   gext java "$@"
 }
 
+gphp() {
+  gext php "$@"
+}
