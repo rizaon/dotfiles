@@ -19,14 +19,14 @@ pathadd() {
   fi
 }
 
-gsh() {
+grepsh() {
   gext sh "$@"
 }
 
-gjava() {
+grepjava() {
   gext java "$@"
 }
 
-gphp() {
+grepphp() {
   gext php "$@"
 }
