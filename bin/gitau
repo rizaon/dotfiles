@@ -9,7 +9,8 @@ against=HEAD
 for FILE in `exec git diff-index --check --cached $against -- | sed '/^[+-]/d' | cut -f1 -d: | uniq` ; do
    echo Cleaning file $REPO_ROOT/$FILE...
    # Fix them!
-   sed -i '' -e's/[[:space:]]*$//' "$REPO_ROOT/$FILE"
+   sed -i.bak -e's/[[:space:]]*$//' "$REPO_ROOT/$FILE"
+   rm "$REPO_ROOT/$FILE.bak"
    # git add "$FILE"
 done
 
