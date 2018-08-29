@@ -1,0 +1,3 @@
+#!/usr/local/bin/bash
+
+ssh node-$2.$1.ucare.emulab.net
