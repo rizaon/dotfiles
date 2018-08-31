@@ -1,6 +1,6 @@
 ## open a blog file. I have one per project
 
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJECT=$1.tex
 MODE=$2
