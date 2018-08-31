@@ -13,6 +13,7 @@
     ~/.shell:
     ~/.vim:
     ~/.vimrc:
+    ~/.zshenv:
     ~/.zshrc:
     ~/bin:
 
