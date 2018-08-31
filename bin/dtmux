@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# GIT Commit message
+
+if [ $# == 0 ]; then
+    echo ""
+    echo "  Use : dtmux <session-name> <script-path> "
+    echo "  Ex  : dtmux longrun ./longrun.sh "
+    echo ""
+    exit
+fi
+
+tmux new-session -d -s "$1" "$2"
+
