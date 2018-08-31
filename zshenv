@@ -1,7 +1,7 @@
 
 
-# if non interactive, just source local zshrc
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
+
+if [ -f ~/.zshenv_local ]; then
+    source ~/.zshenv_local
 fi
 
