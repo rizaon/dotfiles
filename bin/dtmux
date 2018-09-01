@@ -10,5 +10,5 @@ if [ $# == 0 ]; then
     exit
 fi
 
-tmux new-session -d -s "$1" "$2"
+tmux new-session -d -s "$1" "$@"
 
