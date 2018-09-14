@@ -32,3 +32,10 @@ alias cobugs='cd $JIRA_REPO/special-bugs/co-cascadingOutage'
 alias cocode='cd $ECLIPSE_WORKSPACE/cobe'
 alias candidacy='cd $UCARE_DIR/riza-candidacy-exam'
 
+# up alias
+alias u='cd ../'
+alias uu='cd ../../'
+alias uuu='cd ../../../'
+alias uuuu='cd ../../../../'
+alias uuuuu='cd ../../../../../'
+
