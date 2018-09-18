@@ -6,3 +6,8 @@
 (global-set-key "\C-xx" 'fill-paragraph)
 (setq sentence-end-double-space nil)
 (setq-default fill-column 80)
+
+
+(setq load-path (cons "~/.emacs.path/init.d/" load-path))
+(require 'setup-bindings)
+(require 'darwin)
