@@ -1,4 +1,11 @@
-(setq load-path (cons "~/.emacs.path/modes-el/" load-path))
+;; Load path etc.
+(setq dotfiles-dir (file-name-directory
+                    (or (buffer-file-name) load-file-name)))
+(add-to-list 'load-path (concat dotfiles-dir "/init.d"))
+(add-to-list 'load-path (concat dotfiles-dir "/modes-el"))
+
+;; already loaded on top
+;; (setq load-path (cons "~/.emacs.d/modes-el/" load-path))
 (autoload 'markdown-mode "markdown-mode-modified.el" "..." t)
 (setq auto-mode-alist (cons '("\\.txt$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.blog$" . markdown-mode) auto-mode-alist))
@@ -7,7 +14,7 @@
 (setq sentence-end-double-space nil)
 (setq-default fill-column 80)
 
-
-(setq load-path (cons "~/.emacs.path/init.d/" load-path))
+;; already loaded on top
+;; (setq load-path (cons "~/.emacs.d/init.d/" load-path))
 (require 'setup-bindings)
 (require 'darwin)
