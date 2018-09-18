@@ -1,4 +1,4 @@
 
 #rm -f *~
 #rm -f .*~
-find . -name \*~ | xargs rm
+find . -maxdepth 3 -name \*~ | xargs -I {} rm "{}"
