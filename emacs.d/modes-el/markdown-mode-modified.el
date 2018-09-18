@@ -188,19 +188,19 @@
 
 ;; Markdown mode is developed and tested primarily using GNU Emacs 22
 ;; although compatibility with GNU Emacs 21 is also a priority.
-;; 
+;;
 ;; Presently Markdown mode does not attempt to distinguish between
 ;; multiple indentation levels and preformatted text (four or more
 ;; leading spaces).  I am not aware of a way to handle this using
 ;; Emacs's regexp-based font-lock facilities.  Implementing a more
 ;; robust approach to syntax highlighting is a high-priority item for
 ;; future work.
-;; 
+;;
 ;; If you find any bugs, such as syntax highlighting issues, please
 ;; construct a test case and email me at <jrblevin@sdf.lonestar.org>.
 ;; Comments and patches are welcome!
 
-
+
 
 ;;; Code:
 
@@ -489,7 +489,7 @@
 
    ;;(cons markdown-regex-pre markdown-blockquote-face)
    ;; ----------------------------------------------------------------
-   
+
    (cons markdown-regex-code '(2 markdown-inline-code-face))
 
 
@@ -555,12 +555,12 @@
 
 
 (defvar markdown-mode-font-lock-keywords
-  (if markdown-enable-itex 
+  (if markdown-enable-itex
       markdown-mode-font-lock-keywords-itex
     markdown-mode-font-lock-keywords-basic)
   "Default highlighting expressions for Markdown mode")
 
-
+
 
 ;;; Syntax Table ==============================================================
 
@@ -570,7 +570,7 @@
     markdown-mode-syntax-table)
   "Syntax table for markdown-mode")
 
-
+
 
 ;;; Element Insertion =========================================================
 
@@ -766,7 +766,7 @@ as preformatted text."
       (perform-replace "^" "    " nil 1 nil nil nil beg end)))
 
 
-
+
 
 ;;; Keymap ====================================================================
 
@@ -842,7 +842,7 @@ as preformatted text."
     ["Version" markdown-show-version]
     ))
 
-
+
 
 ;;; References ================================================================
 
@@ -1127,7 +1127,7 @@ This is an exact copy of line-number-at-pos for use in emacs21."
       (forward-line 0)
       (1+ (count-lines start (point))))))
 
-
+
 
 ;;; Mode definition  ==========================================================
 

@@ -5,8 +5,7 @@
 - clean: ['~']
 
 - link:
-    ~/.emacs:
-    ~/.emacs.path:
+    ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.oh-my-zsh:
