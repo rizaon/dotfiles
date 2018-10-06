@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.autojump:
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
