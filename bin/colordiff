@@ -30,7 +30,7 @@ my $author       = 'Dave Ewart';
 my $author_email = 'davee@sungate.co.uk';
 my $app_www      = 'http://www.colordiff.org/';
 my $copyright    = '(C)2002-2017';
-my $show_banner  = 1;
+my $show_banner  = 0;
 my $color_patch  = undef;
 my $diff_cmd     = "diff";
 
