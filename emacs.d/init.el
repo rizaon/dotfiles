@@ -13,6 +13,7 @@
 (global-set-key "\C-xx" 'fill-paragraph)
 (setq sentence-end-double-space nil)
 (setq-default fill-column 80)
+(setq column-number-mode t)
 
 ;; already loaded on top
 ;; (setq load-path (cons "~/.emacs.d/init.d/" load-path))
