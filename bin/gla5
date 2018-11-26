@@ -11,10 +11,11 @@ srcstr="$1"
 shift
 
 while (( $# )); do
-  echo $1
-  srcstr="$srcstr.$1"
+#  echo $1
+  srcstr="$srcstr.*$1"
   shift
 done
+echo $srcstr
 
 function grepone() {
     filepath=$1

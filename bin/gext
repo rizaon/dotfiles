@@ -13,10 +13,11 @@ srcstr="$1"
 shift
 
 while (( $# )); do
-  echo $1
-  srcstr="$srcstr.$1"
+#  echo $1
+  srcstr="$srcstr.*$1"
   shift
 done
+echo $srcstr
 
 
 # find . -name "*.java" -exec grep "$*" '{}' \; -print  | cat -n
@@ -41,8 +42,8 @@ function grepone() {
 
 export -f grepone
 
-find . -type f -name "*$ext" \
-    -exec bash -c "grepone {} $srcstr" \;
+find . -type f -name "*$ext" | sort \
+    | xargs -I {} bash -c "grepone {} $srcstr" \;
 
 echo ""
 
