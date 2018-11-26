@@ -47,5 +47,5 @@ alias dcup='docker-compose up'
 alias dcdown='docker-compose down'
 alias dcbuild='docker-compose build --no-cache'
 alias dcex='docker-compose exec'
-alias dcps='docker-compse ps'
+alias dcps='docker-compose ps'
 
