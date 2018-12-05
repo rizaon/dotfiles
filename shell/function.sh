@@ -14,6 +14,7 @@ function removeFromPath() {
 }
 
 pathadd() {
+  removeFromPath $1
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     PATH="$1${PATH:+":$PATH"}"
   fi

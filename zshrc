@@ -2,11 +2,11 @@
 # init oh-my-zsh
 source ~/.shell/oh-my-zsh.sh
 
-# init autojump
-source ~/.shell/autojump.sh
-
 # functions
 source ~/.shell/function.sh
+
+# init autojump
+source ~/.shell/autojump.sh
 
 # env variables
 source ~/.shell/env.sh

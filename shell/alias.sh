@@ -42,10 +42,10 @@ alias uuuuu='cd ../../../../../'
 
 # docker alias
 alias dps='docker ps -a'
-alias dex='docker exec -it'
+alias dx='docker exec -it'
 alias dcup='docker-compose up'
 alias dcdown='docker-compose down'
 alias dcbuild='docker-compose build --no-cache'
-alias dcex='docker-compose exec'
+alias dcx='docker-compose exec'
 alias dcps='docker-compose ps'
 
