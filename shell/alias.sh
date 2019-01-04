@@ -18,6 +18,7 @@ alias zshrc='$EDITOR ~/.zshrc'
 # git aliases
 alias gits='git status'
 alias gitmt='git mergetool'
+alias bfg='java -jar ~/jars/bfg-1.13.0.jar'
 
 # cd aliases
 alias dotfiles='cd $DOTFILES'
