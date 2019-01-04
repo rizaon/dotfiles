@@ -30,7 +30,7 @@ my $author       = 'Dave Ewart';
 my $author_email = 'davee@sungate.co.uk';
 my $app_www      = 'http://www.colordiff.org/';
 my $copyright    = '(C)2002-2017';
-my $show_banner  = 0;
+my $show_banner  = 1;
 my $color_patch  = undef;
 my $diff_cmd     = "diff";
 
@@ -54,7 +54,7 @@ $colour{darkmagenta} = "\033[0;35m";
 $colour{darkblack}   = "\033[0;30m";
 $colour{off}         = "\033[0;0m";
 
-# Default colours if /opt/local/etc/colordiffrc or ~/.colordiffrc do not exist
+# Default colours if /usr/local/etc/colordiffrc or ~/.colordiffrc do not exist
 my $plain_text = $colour{white};
 my $file_old   = $colour{red};
 my $file_new   = $colour{blue};
@@ -63,7 +63,7 @@ my $cvs_stuff  = $colour{green};
 
 # Locations for personal and system-wide colour configurations
 my $HOME   = $ENV{HOME};
-my $etcdir = '/opt/local/etc';
+my $etcdir = '/usr/local/etc';
 my ($setting, $value);
 my @config_files = ("$etcdir/colordiffrc");
 if (defined $ENV{XDG_CONFIG_HOME} && $ENV{XDG_CONFIG_HOME} ne '') {
