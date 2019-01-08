@@ -19,12 +19,12 @@ syn region dlString    start=/\v"/ skip=/\v\\./ end=/\v"/
 
 syn match  dlDelimiter         "->"
 syn match  dlDelimiter         ":-"
-syn match  dlDelimiter	       "[\[\]!?@\~&|\^=<>%+-,;\:\.@]"
+syn match  dlDelimiter	       "[\[\]!?@\~&|\^=<>%+\-,;\:\.@]"
 
 syn region dlRawString start='\[|' end="|]"
 
 "Regular keywords
-syn keyword dlStatement        mut and extern function not or input output relation match var let switch FlatMap Aggregate import as primary key
+syn keyword dlStatement        mut and extern function not or input output relation match var let switch FlatMap Aggregate import as primary key include bddvarorder
 
 syn keyword dlTodo             contained TODO FIXME XXX
 
