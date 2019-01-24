@@ -1,3 +1,4 @@
+
 export CLICOLOR=1
 # mac
 export LSCOLORS=GxFxCxDxBxegedabagaced

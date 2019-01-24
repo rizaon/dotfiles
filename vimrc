@@ -17,6 +17,13 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+" powerline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" fugitive
+Plugin 'tpope/vim-fugitive'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -41,7 +48,14 @@ set hlsearch
 let g:solarized_termtrans = 1
 set background=dark
 colorscheme solarized
-
+" vim-airline
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " escape shortcut
 imap jj <Esc>
+
+
+" enable powerline fonts for airline
+let g:airline_powerline_fonts = 1
+
