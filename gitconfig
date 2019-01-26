@@ -1,6 +1,8 @@
 [alias]
+    au = add -u .
     co = checkout
     dh = diff HEAD
+    st = status
     pom = push origin master
     update-submodules = submodule update --init --depth 100 --recursive
     upgrade-submodules = submodule update --init --depth 100 --remote
