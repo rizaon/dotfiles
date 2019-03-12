@@ -14,6 +14,7 @@ export UCARE_DIR=$HOME/Documents/UCARE
 export DIRPAPERS=$UCARE_DIR/DIR-PAPERS
 export RESEARCH=$UCARE_DIR/blogs
 export JIRA_REPO=$UCARE_DIR/jira-study-db-svn
+export ALL_PDF_FILES=$HOME/my-pdfs
 export ECLIPSE_WORKSPACE=$HOME/Documents/workspace
 export EDITOR=vim
 export DOTFILES=$HOME/dotfiles

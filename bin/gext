@@ -26,24 +26,39 @@ echo $srcstr
 
 
 function grepone() {
-    filepath=$1
+    filepath=$1 #$(echo $1 | sed -e "s/^/'/g" -e "s/$/'/g")
     srcstr=$2
 
-    lblue='\033[0;34m'
-    nc='\033[0m' # No Color
-    linesep="-------------------------------------------"
+    #lblue='\033[0;34m'
+    #nc='\033[0m' # No Color
+    #linesep="-------------------------------------------"
 
-
-    if grep -i -n -q "$srcstr" $filepath; then
-        grep -i -n --color "$srcstr" $filepath
-        echo -e "${lblue}${linesep} $filepath ${nc}"
+    #echo $filepath
+    if grep -i -n -q "$srcstr" "$filepath"; then
+        grep -i -n --color "$srcstr" "$filepath"
+        #echo -e "${lblue}${linesep}" "$filepath" ${nc}"
+        #echo -e "${lblue}"
+        printf "\e[0;34m------------------------------------------- %s\e[0m\n" \
+            "$filepath"
+        #echo -e "${nc}"
     fi
 }
 
 export -f grepone
 
-find . -type f -name "*$ext" | sort \
-    | xargs -I {} bash -c "grepone {} $srcstr" \;
+#find . -type f -name "*$ext" | sort \
+#    | xargs -I {} bash -c "grepone \"{}\" $srcstr" \;
+
+# this method will solve filename with special chars
+files=()
+while IFS=  read -r -d $'\0'; do
+    files+=("$REPLY")
+done < <(find . -type f -name "*$ext" -print0 | sort)
+
+for f in "${files[@]}"
+do
+    grepone "$f" "$srcstr"
+done
 
 echo ""
 

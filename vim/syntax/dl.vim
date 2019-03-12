@@ -25,6 +25,7 @@ syn region dlRawString start='\[|' end="|]"
 
 "Regular keywords
 syn keyword dlStatement        mut and extern function not or input output relation match var let switch FlatMap Aggregate import as primary key include bddvarorder
+syn keyword dlSflStmt          inline decl cat ord substr strlen to_number contains
 
 syn keyword dlTodo             contained TODO FIXME XXX
 
@@ -45,6 +46,7 @@ syn keyword dlOperator	        default
 
 "Keywords for ADTs
 syn keyword dlType	        bool string bigint bit type typedef
+syn keyword dlSflType           symbol symbol_type number number_type
 
 syn sync lines=250
 
@@ -59,8 +61,10 @@ syn match dlNumber "\<[+-]\=[0-9]\+\(\.[0-9]*\|\)\(e[0-9]*\|\)\>"
 if !exists("did_dl_syntax_inits")
   let did_dl_syntax_inits = 1
   hi link dlStatement          Statement
+  hi link dlSflStmt            Statement
   hi link dlOperator           Operator
   hi link dlType               Type
+  hi link dlSflType            Type
   hi link dlComment            Comment
   hi link dlCommentL           Comment
   hi link dlCommentP           Comment

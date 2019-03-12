@@ -50,3 +50,5 @@ alias dcbuild='docker-compose build --no-cache'
 alias dcx='docker-compose exec'
 alias dcps='docker-compose ps'
 
+# some utils
+alias pjson='python -m json.tool'
