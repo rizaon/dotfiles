@@ -40,7 +40,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
 
 " appearances and behavior
-set number
+"set number
 set ruler
 set hlsearch
 
