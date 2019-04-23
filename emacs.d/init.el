@@ -15,6 +15,9 @@
 (setq-default fill-column 80)
 (setq column-number-mode t)
 
+;; turn on Auto Fill Mode
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
 ;; already loaded on top
 ;; (setq load-path (cons "~/.emacs.d/init.d/" load-path))
 (require 'setup-bindings)
