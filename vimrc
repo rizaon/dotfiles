@@ -24,6 +24,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " fugitive
 Plugin 'tpope/vim-fugitive'
 
+" souffle.vim
+Plugin 'souffle-lang/souffle.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

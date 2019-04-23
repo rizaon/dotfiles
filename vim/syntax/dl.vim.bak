@@ -7,6 +7,8 @@
 " the following line to your .vimrc to enable syntax highlighting
 " automatically for Cocoon files:
 " au BufRead,BufNewFile *.dl             set filetype=dl
+"
+" riza: this syntax is disabled after souffle.vim bundle is added
 
 syn clear
 
