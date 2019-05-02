@@ -20,6 +20,9 @@ export EDITOR=vim
 export DOTFILES=$HOME/dotfiles
 #export TEXINPUTS=~/pgfplots//:
 
+# gpg tty
+export GPG_TTY=$(tty)
+
 # local bin
 pathadd ~/bin
 

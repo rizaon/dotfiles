@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# GIT commit and sign
+
+git commit -S
+
+git --no-pager log --show-signature --stat -n 1
+
+git status
+

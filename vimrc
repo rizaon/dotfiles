@@ -38,9 +38,13 @@ let g:vim_markdown_folding_disabled = 1
 " indentation and syntax
 filetype plugin indent on
 syntax enable
-setlocal textwidth=80
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
+set textwidth=80
+" sometimes, i wish to write long lines
+" set textwidth=0
+" set wrapmargin=0
+
 
 " appearances and behavior
 "set number
