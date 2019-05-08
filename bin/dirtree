@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# this script will print directory structure in tree-like output
+
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+

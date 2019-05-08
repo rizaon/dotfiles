@@ -32,3 +32,6 @@ gphp() {
   gext php "$@"
 }
 
+refreshgpg() {
+  echo "UPDATESTARTUPTTY" | gpg-connect-agent > /dev/null 2>&1
+}
