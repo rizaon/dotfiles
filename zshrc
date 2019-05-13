@@ -2,6 +2,9 @@
 # init oh-my-zsh
 source ~/.shell/oh-my-zsh.sh
 
+# fix svn autocomplete
+source ~/.shell/_subversion.sh
+
 # functions
 source ~/.shell/function.sh
 

@@ -34,8 +34,8 @@ fi
 fi
 fi
 
-filecnt=`find . -name "*" | grep -i "$str" | grep -v '~' | wc -l`
-file=`find . -name "*" | grep -i "$str" | grep -v '~'`
+filecnt=`find . -name "*" | grep -i "$str" | grep -v -e '~' -e '.git/' | wc -l`
+file=`find . -name "*" | grep -i "$str" | grep -v -e '~' -e '.git/'`
 
 
 if [ $filecnt == 1 ]; then
