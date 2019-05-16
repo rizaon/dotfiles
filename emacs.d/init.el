@@ -21,4 +21,8 @@
 ;; already loaded on top
 ;; (setq load-path (cons "~/.emacs.d/init.d/" load-path))
 (require 'setup-bindings)
-(require 'darwin)
+;; check OS type
+(cond
+  ((string-equal system-type "darwin") ; Mac OS X
+   (require 'darwin) ; share clipboard with pbcopy-pbpaste
+   ))
