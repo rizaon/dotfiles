@@ -24,7 +24,7 @@ ZSH_THEME="agnoster"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -99,5 +99,35 @@ source $ZSH/oh-my-zsh.sh
 #  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
 #    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
 #  fi
+#}
+
+
+# to add svn propt to agnoster
+# too slow for big svn repo, disabling it for now
+#prompt_svn() {
+#    local rev branch
+#    if in_svn; then
+#        rev=$(svn_get_rev_nr)
+#        branch=$(svn_get_branch_name)
+#        if [[ $(svn_dirty_choose_pwd 1 0) -eq 1 ]]; then
+#            prompt_segment yellow black
+#            echo -n "$rev@$branch"
+#            echo -n "±"
+#        else
+#            prompt_segment green black
+#            echo -n "$rev@$branch"
+#        fi
+#    fi
+#}
+#
+## override agnoster build_prompt
+#build_prompt() {
+#    RETVAL=$?
+#    prompt_status
+#    prompt_context
+#    prompt_dir
+#    prompt_git
+#    prompt_svn
+#    prompt_end
 #}
 

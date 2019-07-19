@@ -14,6 +14,7 @@ function removeFromPath() {
 }
 
 pathadd() {
+  removeFromPath $1
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     PATH="$1${PATH:+":$PATH"}"
   fi
@@ -31,3 +32,6 @@ gphp() {
   gext php "$@"
 }
 
+refreshgpg() {
+  echo "UPDATESTARTUPTTY" | gpg-connect-agent > /dev/null 2>&1
+}

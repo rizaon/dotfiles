@@ -1,8 +1,8 @@
-## open a blog file. I have one per project
-
 #!/usr/bin/env bash
 
-PROJECT=$1.blog
+## open a blog file. I have one per project
+
+PROJECT=$1.md
 MODE=$2
 
 PROJECT_FILE=$RESEARCH/$PROJECT

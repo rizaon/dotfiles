@@ -7,7 +7,8 @@ alias la='ls -A'
 alias l='ls'
 alias ltail='ls -1v | tail'
 
-alias e='vim'
+alias e='emacs'
+alias v='vim'
 alias m='make'
 alias mall='make all'
 alias diff='colordiff'
@@ -17,6 +18,7 @@ alias zshrc='$EDITOR ~/.zshrc'
 # git aliases
 alias gits='git status'
 alias gitmt='git mergetool'
+alias bfg='java -jar ~/jars/bfg-1.13.0.jar'
 
 # cd aliases
 alias dotfiles='cd $DOTFILES'
@@ -39,3 +41,14 @@ alias uuu='cd ../../../'
 alias uuuu='cd ../../../../'
 alias uuuuu='cd ../../../../../'
 
+# docker alias
+alias dps='docker ps -a'
+alias dx='docker exec -it'
+alias dcup='docker-compose up'
+alias dcdown='docker-compose down'
+alias dcbuild='docker-compose build --no-cache'
+alias dcx='docker-compose exec'
+alias dcps='docker-compose ps'
+
+# some utils
+alias pjson='python -m json.tool'

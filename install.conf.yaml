@@ -5,11 +5,14 @@
 - clean: ['~']
 
 - link:
+    ~/.autojump:
+    ~/.colordiffrc:
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.oh-my-zsh:
     ~/.shell:
+    ~/.subversion/config: 'subversion/config'
     ~/.vim:
     ~/.vimrc:
     ~/.zshenv:
