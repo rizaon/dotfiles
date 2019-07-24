@@ -2,7 +2,15 @@
 
 # GIT commit and sign
 
-git commit -S
+if [ $# == 0 ]; then
+    echo ""
+    echo "  Use : gitc <commit message in one line> "
+    echo "  Ex  : gitc I added some things "
+    echo ""
+    exit
+fi
+
+git commit -S -m "$*"
 
 git --no-pager log --show-signature --stat -n 1
 
