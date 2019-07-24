@@ -7,6 +7,7 @@
 - link:
     ~/.autojump:
     ~/.colordiffrc:
+    ~/.dir_colors: 'dircolors/dircolors.256dark'
     ~/.emacs.d:
     ~/.gitconfig:
     ~/.gitignore_global:
