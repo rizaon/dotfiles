@@ -3,8 +3,6 @@ export CLICOLOR=1
 # mac ls
 #export LSCOLORS=GxFxCxDxBxegedabagaced
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-# GNU ls (linux), use dircolors database
-eval `dircolors ~/.dir_colors`
 
 export MAVEN_OPTS="-Dhttps.protocols=TLSv1.2"
 export ANT_OPTS="-Dhttps.protocols=TLSv1.2"
@@ -25,6 +23,11 @@ export GPG_TTY=$(tty)
 # local bin
 pathadd ~/bin
 
-# macports
-pathadd /opt/local/sbin
-pathadd /opt/local/bin
+# GNU coreutils path on Homebrew
+gnubin="/usr/local/opt/coreutils/libexec/gnubin"
+if [ -d "$gnubin" ]; then
+    pathadd $gnubin
+fi
+
+# GNU ls (linux), use dircolors database
+eval `dircolors ~/.dir_colors`
