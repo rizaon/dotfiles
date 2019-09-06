@@ -27,6 +27,9 @@ Plugin 'tpope/vim-fugitive'
 " souffle.vim
 Plugin 'souffle-lang/souffle.vim'
 
+" vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -40,7 +43,7 @@ filetype plugin indent on
 syntax enable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
-set textwidth=80
+set textwidth=120
 " sometimes, i wish to write long lines
 " set textwidth=0
 " set wrapmargin=0
