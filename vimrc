@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " theme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 
 " for markdown
 Plugin 'godlygeek/tabular'
@@ -28,7 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'souffle-lang/souffle.vim'
 
 " vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,12 +56,15 @@ set ruler
 set hlsearch
 
 " Solarized stuff
-let g:solarized_termtrans = 1
-set background=dark
-colorscheme solarized
-" vim-airline
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+"let g:solarized_termtrans = 1
+"set background=dark
+"colorscheme solarized
+" Solarized vim-airline
+"let g:airline_theme='solarized'
+"let g:airline_solarized_bg='dark'
+
+" gruvbox
+colorscheme gruvbox
 
 " escape shortcut
 imap jj <Esc>
