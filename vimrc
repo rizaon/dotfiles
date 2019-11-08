@@ -65,6 +65,7 @@ set hlsearch
 
 " gruvbox
 colorscheme gruvbox
+set bg=dark
 
 " escape shortcut
 imap jj <Esc>
