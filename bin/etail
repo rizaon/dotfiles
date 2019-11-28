@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+editor +$(wc -l $1)
+
