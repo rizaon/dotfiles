@@ -36,6 +36,16 @@ And there are about [700 more here][dotbot-users].
 If you're using Dotbot and you'd like to include a link to your dotfiles here
 as an inspiration to others, please submit a pull request.
 
+Riza's Specific Environment
+---------------------------
+
+Some manual steps that need to be done manually before or after `./install`
+
+* Import [gruvbox][gruvbox-iterm2] color scheme to ITerm2.
+* Install [zsh-syntax-highlighting][zsh-highlight].
+* On Mac, install [coreutils][brew-coreutils].
+
+
 License
 -------
 
@@ -56,3 +66,6 @@ Dotbot (or this repository) to help other people discover Dotbot.
 [wazery_dotfiles]: https://github.com/wazery/dotfiles
 [thirtythreeforty_dotfiles]: https://github.com/thirtythreeforty/dotfiles
 [dotbot-users]: https://github.com/anishathalye/dotbot/wiki/Users
+[gruvbox-iterm2]: https://github.com/morhetz/gruvbox-contrib/tree/master/iterm2
+[zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting
+[brew-coreutils]: https://formulae.brew.sh/formula/coreutils
