@@ -9,7 +9,7 @@ export ANT_OPTS="-Dhttps.protocols=TLSv1.2"
 
 export UCARE_DIR=$HOME/Documents/UCARE
 export DIRPAPERS=$UCARE_DIR/DIR-PAPERS
-export RESEARCH=$UCARE_DIR/blogs
+export RESEARCH=$HOME/Documents/blogs
 export JIRA_REPO=$UCARE_DIR/jira-study-db-svn
 export ALL_PDF_FILES=$HOME/my-pdfs
 export ECLIPSE_WORKSPACE=$HOME/Documents/workspace
@@ -27,6 +27,9 @@ pathadd ~/bin
 gnubin="/usr/local/opt/coreutils/libexec/gnubin"
 if [ -d "$gnubin" ]; then
     pathadd $gnubin
+
+    # use ls (gls) from coreutils
+    alias ls="gls --color=auto"
 fi
 
 # GNU ls (linux), use dircolors database
