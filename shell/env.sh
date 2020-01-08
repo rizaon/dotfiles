@@ -35,6 +35,9 @@ fi
 # GNU ls (linux), use dircolors database
 eval `dircolors ~/.dir_colors`
 
+# Gerrit username
+export GERRIT_USER="rizaon"
+
 # Impala shortcuts
 branch-master() {
   git fetch asf-gerrit && git checkout -b $1 asf-gerrit/master
