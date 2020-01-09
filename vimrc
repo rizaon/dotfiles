@@ -31,6 +31,9 @@ Plugin 'souffle-lang/souffle.vim'
 " vim-gitgutter
 " Plugin 'airblade/vim-gitgutter'
 
+" C++ autocomplete for vim
+Plugin 'Valloric/YouCompleteMe'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -51,7 +54,7 @@ set textwidth=120
 
 
 " appearances and behavior
-"set number
+set number
 set ruler
 set hlsearch
 
@@ -74,3 +77,7 @@ imap jj <Esc>
 " enable powerline fonts for airline
 let g:airline_powerline_fonts = 1
 
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
