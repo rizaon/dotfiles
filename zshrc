@@ -17,6 +17,9 @@ source ~/.shell/env.sh
 # aliases
 source ~/.shell/alias.sh
 
+# Cloudera specific scripts
+source ~/.shell/cloudera.sh
+
 # source local zshrc
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
