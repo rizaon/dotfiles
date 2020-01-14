@@ -1,4 +1,8 @@
 
+# init zsh autocompletion
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
 # init oh-my-zsh
 source ~/.shell/oh-my-zsh.sh
 
@@ -19,6 +23,9 @@ source ~/.shell/alias.sh
 
 # Cloudera specific scripts
 source ~/.shell/cloudera.sh
+
+# load Cloudera aws-okta script
+source ~/.shell/bashrc_aws-okta
 
 # source local zshrc
 if [ -f ~/.zshrc_local ]; then
