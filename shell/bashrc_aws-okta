@@ -1,0 +1,127 @@
+#!/bin/bash
+# Set up a path to Go. Adjust for your platform, as required.
+[[ -f /usr/local/go/bin/go ]] && export PATH=$PATH:/usr/local/go/bin
+# If golang is installed, 'go get <github url>' will install binaries here:
+[[ -d $HOME/go/bin ]] && export PATH=$PATH:$HOME/go/bin
+##############################################################################
+# Description:
+#    `ao-config` is a configuration function to help grab the latest and greatest config (from Git) for `aws-okta` (`ao`) SSO.
+#    `ao` is the SSO utility used to log into the AWS console or execute commandline functions. It has autocomplete!
+#    `ao-which` is a troubleshooting tool which shows the current Okta group configured in `.aws/config`
+# Synopsis here: http://github.mtv.cloudera.com/SRE/sre/tree/master/terraform/modules/cloud-users/ao_config
+# Full docs here: https://cloudera.atlassian.net/wiki/spaces/ESRE/pages/30376051/SRE+Runbook+-+Cloud+Users+AWS-Okta+SSO
+#
+if type -p aws-okta > /dev/null; then
+    [[ $(uname) == 'Linux' ]] && export AWS_OKTA_BACKEND='secret-service' # Linux only.
+    alias ao='aws-okta'
+    alias aoc='ao-config'
+    alias aoh='ao-help'
+    alias aoe='ao exec'
+    alias aol='ao-shortcut login'
+    alias aosh='ao-shortcut shell'
+    function ao-shortcut(){
+        if [[ -z "$2" ]]; then
+            echo "Usage: ao-shortcut [login|shell] <account_profile>"
+            echo "If used with an alias, then: <alias> <account_profile>"
+        else
+            case "$1" in
+                "login" )
+                    aws-okta login "$2"
+                    ;;
+                "shell" )
+                    if [[ -z "$SHELL" ]]; then
+                        echo "FAIL: \$SHELL not set."
+                    else
+                        aws-okta exec "$2" -- "$SHELL"
+                    fi
+                    ;;
+            esac
+        fi
+    }
+    function ao-config(){
+        AOC='AO_CONFIG.sh'
+        LOCAL_AOC="$HOME/.aws/$AOC"
+        SOURCE_AOC="https://github.infra.cloudera.com/raw/SRE/sre/master/terraform/modules/cloud-users/ao_config/${AOC}"
+        [[ -d "$HOME/.aws" ]] || mkdir -vp "$HOME/.aws"
+        if [[ ! -z "$1" ]]; then
+            if [[ -f "$LOCAL_AOC" ]]; then
+                echo "Using local manifest and attempting to load config: $1"
+                "$LOCAL_AOC" "$1"
+            else
+                echo "Not found: $LOCAL_AOC"
+                echo "Resetting."
+                exec "$0"
+            fi
+        else
+            type -p curl > /dev/null
+            type_exit=$?
+            if (( type_exit != 0 )); then
+                echo "Unable to configure without 'curl' command."
+                echo 'Aborting.'
+            else
+                echo "Fetching latest config script."
+                rm -f "$LOCAL_AOC"
+                curl --location --silent "${SOURCE_AOC}" --output "$LOCAL_AOC"
+                curl_exit=$?
+                if (( curl_exit != 0 )); then
+                    echo "Fetch had a bad exit code ($curl_exit) for: $SOURCE_AOC"
+                    echo 'Aborting.'
+                elif [[ ! -f "$LOCAL_AOC" ]]; then
+                    echo 'Configuration script failed to download.'
+                    echo 'Aborting.'
+                else
+                    echo 'Launching the configuration script.'
+                    chmod +x "$LOCAL_AOC"
+                    "$LOCAL_AOC"
+                fi
+            fi
+        fi
+    }
+    #
+    function ao-help(){
+        echo -en "$(aws-okta version) $(type -p aws-okta)\n"
+        echo -n "Configured group: "
+        grep '^role_arn=' "$HOME/.aws/config" | head -1 | sed -e 's/\// /' | awk '{print $2}'
+        echo -n "Config version: "
+        grep -E '# Generated: ' "$HOME"/.aws/config | awk '{print $3}'
+        echo "AWS_OKTA_BACKEND=$AWS_OKTA_BACKEND"
+        uname -a
+    }
+    #
+    _ao_autocomplete(){
+        local current=${COMP_WORDS[COMP_CWORD]}
+        local previous=${COMP_WORDS[COMP_CWORD-1]}
+        case "$previous" in
+            'aws-okta'|'ao')
+                AOT_COMMANDS="login exec"
+                COMPREPLY=( $( compgen -W "$AOT_COMMANDS" -- "$current" ) )
+                ;;
+            'login'|'exec')
+                # Snarf all CloudUsers profiles from the AWS config file.
+                targets=$(awk '/^\[profile cu_/{print $2}' ~/.aws/config | sed -e 's/]//g')
+                COMPREPLY=( $( compgen -W "$targets" -- "$current" ) )
+                return 0
+                ;;
+        esac
+        [[ 'configure' == "$previous" ]] && return 0
+    }
+    complete -F _ao_autocomplete ao
+    complete -F _ao_autocomplete aws-okta
+    #
+    _ao_shortcut_autocomplete(){
+        local current=${COMP_WORDS[COMP_CWORD]}
+        local previous=${COMP_WORDS[COMP_CWORD-1]}
+        case "$previous" in
+            'aol'|'aosh'|'aoe')
+                # Snarf all CloudUsers profiles from the AWS config file.
+                targets=$(awk '/^\[profile cu_/{print $2}' ~/.aws/config | sed -e 's/]//g')
+                COMPREPLY=( $( compgen -W "$targets" -- "$current" ) )
+                return 0
+                ;;
+        esac
+        [[ 'configure' == "$previous" ]] && return 0
+    }
+    complete -F _ao_shortcut_autocomplete aol
+    complete -F _ao_shortcut_autocomplete aoe
+    complete -F _ao_shortcut_autocomplete aosh
+fi
