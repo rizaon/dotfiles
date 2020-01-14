@@ -41,9 +41,15 @@ Riza's Specific Environment
 
 Some manual steps that need to be done manually before or after `./install`
 
-* Import [gruvbox][gruvbox-iterm2] color scheme to ITerm2.
 * Install [zsh-syntax-highlighting][zsh-highlight].
 * On Mac, install [coreutils][brew-coreutils].
+* On iTerm2, go to Preference > Profile, and then set the following:
+  * On Colors, Import [gruvbox][gruvbox-iterm2] color scheme.
+  * On Text, Install [powerline font][powerline-font], and set Meslo LG M for
+    Powerline 14pt.
+  * On Keys:
+    * Set Left Option key to Esc+.
+    * Setup [mac keyboard shortcut][zsh-iterm-shortcut] for zsh.
 
 
 License
@@ -69,3 +75,5 @@ Dotbot (or this repository) to help other people discover Dotbot.
 [gruvbox-iterm2]: https://github.com/morhetz/gruvbox-contrib/tree/master/iterm2
 [zsh-highlight]: https://github.com/zsh-users/zsh-syntax-highlighting
 [brew-coreutils]: https://formulae.brew.sh/formula/coreutils
+[powerline-font]: https://github.com/powerline/fonts
+[zsh-iterm-shortcut]: https://coderwall.com/p/a8uxma/zsh-iterm2-osx-shortcuts
