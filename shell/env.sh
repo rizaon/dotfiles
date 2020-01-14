@@ -9,7 +9,7 @@ export ANT_OPTS="-Dhttps.protocols=TLSv1.2"
 
 export UCARE_DIR=$HOME/Documents/UCARE
 export DIRPAPERS=$UCARE_DIR/DIR-PAPERS
-export RESEARCH=$HOME/Documents/blogs
+export RESEARCH=$HOME/Documents/journal/work/blogs
 export JIRA_REPO=$UCARE_DIR/jira-study-db-svn
 export ALL_PDF_FILES=$HOME/my-pdfs
 export WORKSPACE=$HOME/workspace
