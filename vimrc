@@ -82,3 +82,12 @@ let g:airline_powerline_fonts = 1
 set updatetime=1000
 let g:gitgutter_enabled = 0
 
+" Find file in directory
+silent! nmap <C-P> :Files<CR>
+
+" Find file registered in repository (Git)
+silent! nmap <C-G> :GFiles<CR>
+
+" Find file contaning string/regex
+silent! nmap <C-f> :Rg!
+

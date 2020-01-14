@@ -1,4 +1,8 @@
 
+# init zsh autocompletion
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+
 # init oh-my-zsh
 source ~/.shell/oh-my-zsh.sh
 
