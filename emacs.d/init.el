@@ -12,7 +12,9 @@
 (setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
 (global-set-key "\C-xx" 'fill-paragraph)
 (setq sentence-end-double-space nil)
-(setq-default fill-column 80)
+;; max commit message length for impala is 72. emacs default to 70.
+;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
+;; (setq-default fill-column 72)
 (setq column-number-mode t)
 
 ;; turn on Auto Fill Mode
