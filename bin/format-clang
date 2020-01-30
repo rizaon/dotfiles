@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CLANG_FORMAT_HOME=/usr/local/Cellar/clang-format/2019-05-14
+
+git diff -U0 --no-color HEAD^ \
+    | "$CLANG_FORMAT_HOME/share/clang/clang-format-diff.py" \
+    -binary "$CLANG_FORMAT_HOME/bin/clang-format" -p1 -i
+
