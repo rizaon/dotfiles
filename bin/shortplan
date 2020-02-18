@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cat $1 | grep -v -e "mem-estimate=" -e "tuple-ids=" -e "in pipelines:" -e "stored statistics:" -e "table:" \
+    -e "columns:" -e "extrapolated-rows" -e "partitions:"
+

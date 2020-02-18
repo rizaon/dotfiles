@@ -47,6 +47,7 @@ filetype plugin indent on
 syntax enable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
+autocmd Filetype python setlocal shiftwidth=2 softtabstop=2 expandtab
 set textwidth=120
 " sometimes, i wish to write long lines
 " set textwidth=0
