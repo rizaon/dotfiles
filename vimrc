@@ -48,7 +48,7 @@ syntax enable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
 autocmd Filetype python setlocal shiftwidth=2 softtabstop=2 expandtab
-set textwidth=120
+set textwidth=90
 " sometimes, i wish to write long lines
 " set textwidth=0
 " set wrapmargin=0
@@ -82,3 +82,5 @@ let g:airline_powerline_fonts = 1
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
+" Disable auto suggestion
+let g:ycm_min_num_of_chars_for_completion = 99
