@@ -7,7 +7,8 @@
 
 
 #open -a /Applications/Skim.app $*
-open -a /Applications/Preview.app $*
+#open -a /Applications/Preview.app $*
+preview $*
 
 
 # if you Linux user, then you need to find where your 

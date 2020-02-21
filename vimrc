@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " theme
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'morhetz/gruvbox'
 
 " for markdown
 Plugin 'godlygeek/tabular'
@@ -27,6 +28,9 @@ Plugin 'tpope/vim-fugitive'
 " souffle.vim
 Plugin 'souffle-lang/souffle.vim'
 
+" vim-gitgutter
+" Plugin 'airblade/vim-gitgutter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -40,7 +44,7 @@ filetype plugin indent on
 syntax enable
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 autocmd Filetype java setlocal tabstop=2
-set textwidth=80
+set textwidth=120
 " sometimes, i wish to write long lines
 " set textwidth=0
 " set wrapmargin=0
@@ -52,12 +56,16 @@ set ruler
 set hlsearch
 
 " Solarized stuff
-let g:solarized_termtrans = 1
-set background=dark
-colorscheme solarized
-" vim-airline
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+"let g:solarized_termtrans = 1
+"set background=dark
+"colorscheme solarized
+" Solarized vim-airline
+"let g:airline_theme='solarized'
+"let g:airline_solarized_bg='dark'
+
+" gruvbox
+colorscheme gruvbox
+set bg=dark
 
 " escape shortcut
 imap jj <Esc>
