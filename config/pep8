@@ -1,3 +1,4 @@
 [pep8]
+ignore = W503
 indent-size = 2
 max-line-length=90
