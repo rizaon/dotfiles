@@ -41,7 +41,6 @@ Riza's Specific Environment
 
 Some manual steps that need to be done manually before or after `./install`
 
-* Install [zsh-syntax-highlighting][zsh-highlight].
 * On Mac, install [coreutils][brew-coreutils].
 * On iTerm2, go to Preference > Profile, and then set the following:
   * On Colors, Import [gruvbox][gruvbox-iterm2] color scheme.
