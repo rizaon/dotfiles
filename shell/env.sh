@@ -1,4 +1,7 @@
 
+# fix color scheme while inside tmux
+[[ $TMUX != "" ]] && export TERM="screen-256color"
+
 export CLICOLOR=1
 # mac ls
 #export LSCOLORS=GxFxCxDxBxegedabagaced
