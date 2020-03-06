@@ -31,3 +31,14 @@ ide-impala() {
         clion $IMPALA_HOME
     fi
 }
+
+# Jupyter notebook shortcut from
+# https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/
+jpt() {
+    # Fires-up a Jupyter notebook by supplying a specific port
+    jupyter notebook --no-browser --port=$1
+}
+jptt() {
+    # Forwards port $1 into port $2 and listens to it
+    ssh -N -f -L localhost:$2:localhost:$1 remoteuser@remotehost
+}
