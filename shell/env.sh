@@ -46,4 +46,4 @@ bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
 # zsh-syntax-highlighting
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
