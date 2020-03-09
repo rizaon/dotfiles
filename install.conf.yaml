@@ -15,13 +15,13 @@
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.oh-my-zsh:
-    ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting: 'zsh-syntax-highlighting'
     ~/.shell:
     ~/.subversion/config: 'subversion/config'
     ~/.vim:
     ~/.vimrc:
     ~/.zshenv:
     ~/.zshrc:
+    ~/.zsh-syntax-highlighting:
     ~/bin:
 
 - shell:
