@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-kubectl port-forward coordinator-0 -n $1 25000:25000
-

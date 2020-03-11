@@ -32,6 +32,12 @@ ide-impala() {
     fi
 }
 
+# forward Impala Web UI of coordinator node in DWX
+forward-dwx() {
+    impala_ns=$1
+    kubectl port-forward coordinator-0 -n $impala_ns 25000:25000
+}
+
 # Jupyter notebook shortcut from
 # https://ljvmiranda921.github.io/notebook/2018/01/31/running-a-jupyter-notebook/
 jpt() {
@@ -39,6 +45,8 @@ jpt() {
     jupyter notebook --no-browser --port=$1
 }
 jptt() {
+    local_port=$1
+    remote_port=$2
     # Forwards port $1 into port $2 and listens to it
-    ssh -N -f -L localhost:$2:localhost:$1 remoteuser@remotehost
+    ssh -N -L localhost:${remote_port}:localhost:${local_port} lars
 }

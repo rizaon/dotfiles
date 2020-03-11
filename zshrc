@@ -31,3 +31,8 @@ source ~/.shell/bashrc_aws-okta
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+# source local dwx env
+if [ -f ~/.dwx_rc.sh ]; then
+    source ~/.dwx_rc.sh
+fi
