@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+git diff asf-gerrit/master \
+    | "${IMPALA_TOOLCHAIN}/llvm-${IMPALA_LLVM_VERSION}/share/clang/clang-tidy-diff.py" \
+    -clang-tidy-binary "${IMPALA_TOOLCHAIN}/llvm-${IMPALA_LLVM_VERSION}/bin/clang-tidy" -p 1
+
