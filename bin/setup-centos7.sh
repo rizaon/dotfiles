@@ -2,8 +2,8 @@
 
 # setup git
 sudo yum -y remove git*
-sudo yum -y install  https://centos7.iuscommunity.org/ius-release.rpm
-sudo yum -y install  git2u-all
+sudo yum -y install  https://repo.ius.io/ius-release-el7.rpm
+sudo yum -y install  git222
 git --version
 
 # install some tools

@@ -44,6 +44,8 @@ gmail http://www.gmail.com/
 gcal http://www.google.com/calendar
 pintos-html https://www.classes.cs.uchicago.edu/archive/2018/fall/23000-1/pintos/doc/html/
 pintos-p1 https://www.classes.cs.uchicago.edu/archive/2018/fall/23000-1/proj/p1/
+tpc-ds https://github.infra.cloudera.com/rizaon/TPC-DS
+tpcds-kit https://github.com/cloudera/impala-tpcds-kit
 
 
 # NOTE THAT if at one point your keywords are too many,
