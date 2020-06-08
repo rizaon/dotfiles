@@ -52,3 +52,6 @@ alias dcps='docker-compose ps'
 
 # some utils
 alias pjson='python -m json.tool'
+
+alias lg='ledger'
+alias lgbal='ledger balance -V --price-db prices.db'
