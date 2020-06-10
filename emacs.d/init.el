@@ -49,31 +49,56 @@ There are two things you can do about this warning:
    (require 'darwin) ; share clipboard with pbcopy-pbpaste
    ))
 
-;; Enable company-mode
-(add-hook 'after-init-hook 'global-company-mode)
-;; Use tab key to show completion suggestion
-;; (global-set-key "\t" 'company-complete-common)
 
-;; Enable gruvbox theme
-(load-theme 'gruvbox t)
+;; Everything below here is MELPA packages installation and config
 
-;; Always go to end of file in ledger mode
-;; (add-hook 'ledger-mode-hook 'end-of-buffer)
-(add-hook 'ledger-mode-hook
-	  (lambda()
-	    (setq-local ledger-post-amount-alignment-column 70)))
+;; use-package
+(unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
 
-;; Enable helm-mode
-;(use-package helm
-;  :ensure t
-;  :config (helm-mode t))
+;; Theme settings
+(use-package gruvbox-theme
+  :ensure t
+  :init
+  ;; Disable old theme before loading
+  (defadvice load-theme
+      (before theme-dont-propagate activate)
+    (mapc #'disable-theme custom-enabled-themes))
+  :config (load-theme 'gruvbox t)
+  )
+
+;; Company
+(use-package company
+  :ensure t
+  :init (global-company-mode t)
+  )
+
+;; ledger-mode
+(use-package ledger-mode
+  :ensure t
+  :init
+  (setq ledger-clear-whole-transactions 1
+        ledger-post-amount-alignment-column 70)
+  ; (add-hook 'ledger-mode-hook 'end-of-buffer) ; Always go to end of file in ledger mode
+  )
+
+;; helm-mode
+(use-package helm
+  :ensure t
+  :config (helm-mode t)
+  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (gruvbox-theme company ledger-mode))))
+ '(package-selected-packages
+   (quote
+    (helm ledger-mode company gruvbox-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
