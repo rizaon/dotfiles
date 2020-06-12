@@ -91,6 +91,13 @@ There are two things you can do about this warning:
   :config (helm-mode t)
   )
 
+;; git-mode
+(use-package git-commit
+  :ensure t
+  :init
+  )
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
