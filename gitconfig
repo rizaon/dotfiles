@@ -1,6 +1,7 @@
 [alias]
     au = add -u .
     co = checkout
+    cm = commit
     dh = diff HEAD
     ds = diff --staged
     st = status

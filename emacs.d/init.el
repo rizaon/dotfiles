@@ -20,18 +20,16 @@ There are two things you can do about this warning:
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "/init.d"))
-(add-to-list 'load-path (concat dotfiles-dir "/modes-el"))
 
-;; already loaded on top
-;; (setq load-path (cons "~/.emacs.d/modes-el/" load-path))
-(autoload 'markdown-mode "markdown-mode-modified.el" "..." t)
-(setq auto-mode-alist (cons '("\\.txt$" . markdown-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.blog$" . markdown-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+;; Make Org mode work with files ending in .org
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
 ;; Alternative key for fill paragraph. Default is "M-q".
 ;; (global-set-key "\C-xx" 'fill-paragraph)
 (setq sentence-end-double-space nil)
-(setq-default fill-column 80)
+;; Follow max_line_length from linux
+;; https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=bdc48fa11e46f867ea4d75fa59ee87a7f48be144
+(setq-default fill-column 100)
 (setq column-number-mode t)
 
 ;; turn on Auto Fill Mode
@@ -67,14 +65,12 @@ There are two things you can do about this warning:
   (defadvice load-theme
       (before theme-dont-propagate activate)
     (mapc #'disable-theme custom-enabled-themes))
-  :config (load-theme 'gruvbox t)
-  )
+  :config (load-theme 'gruvbox t))
 
 ;; Company
 (use-package company
   :ensure t
-  :init (global-company-mode t)
-  )
+  :init (global-company-mode t))
 
 ;; ledger-mode
 (use-package ledger-mode
@@ -88,14 +84,39 @@ There are two things you can do about this warning:
 ;; helm-mode
 (use-package helm
   :ensure t
-  :config (helm-mode t)
-  )
+  :config (helm-mode t))
 
 ;; git-mode
 (use-package git-commit
   :ensure t
   :init
+  ;; max commit message length for impala is 72. emacs default to 70.
+  ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
+  (set-fill-column 72)
   )
+
+;; markdown-mode
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode)
+         ("\\.txt\\'" . markdown-mode)
+         ("\\.blog\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+;; htmlize for org-mdode
+(use-package htmlize :ensure t)
+
+;; org-bullets for org-mode
+;; https://thraxys.wordpress.com/2016/01/14/pimp-up-your-org-agenda/
+(use-package org-bullets
+  :ensure t
+  :init
+  (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 
 (custom-set-variables
