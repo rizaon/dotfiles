@@ -20,9 +20,13 @@ There are two things you can do about this warning:
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "/init.d"))
+(add-to-list 'load-path (concat dotfiles-dir "/modes-el"))
+(autoload 'jrnl-mode "jrnl-mode.el" "..." t)
 
 ;; Make Org mode work with files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; JRNL highlighting
+(add-to-list 'auto-mode-alist '("\\.jrnl$" . jrnl-mode))
 
 ;; Alternative key for fill paragraph. Default is "M-q".
 ;; (global-set-key "\C-xx" 'fill-paragraph)
