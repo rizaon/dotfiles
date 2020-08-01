@@ -2,7 +2,7 @@
 
 ## open a blog file. I have one per project
 
-PROJECT=$1.md
+PROJECT=$1.org
 MODE=$2
 
 PROJECT_FILE=$RESEARCH/$PROJECT

@@ -20,9 +20,13 @@ There are two things you can do about this warning:
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "/init.d"))
+(add-to-list 'load-path (concat dotfiles-dir "/modes-el"))
+(autoload 'jrnl-mode "jrnl-mode.el" "..." t)
 
 ;; Make Org mode work with files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; JRNL highlighting
+(add-to-list 'auto-mode-alist '("\\.jrnl$" . jrnl-mode))
 
 ;; Alternative key for fill paragraph. Default is "M-q".
 ;; (global-set-key "\C-xx" 'fill-paragraph)
@@ -47,6 +51,8 @@ There are two things you can do about this warning:
    (require 'darwin) ; share clipboard with pbcopy-pbpaste
    ))
 
+;; option for org-mode
+; (setq org-startup-truncated nil) ; no wrap
 
 ;; Everything below here is MELPA packages installation and config
 
@@ -92,7 +98,7 @@ There are two things you can do about this warning:
   :init
   ;; max commit message length for impala is 72. emacs default to 70.
   ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
-  (set-fill-column 72)
+  (setq fill-column 72)
   )
 
 ;; markdown-mode
@@ -114,7 +120,8 @@ There are two things you can do about this warning:
 (use-package org-bullets
   :ensure t
   :init
-  (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+  ; (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+  (setq org-log-done 'time)
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 

@@ -11,3 +11,8 @@ to `.emacs.d/init.el`
 (setq auto-mode-alist (cons '("\\.blog$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
 ```
+
+# jrnl-mode
+
+[jrnl](https://jrnl.sh/) is a python tool for journaling straight from CLI. The jrnl-mode.el is my
+own custom highlighting to distinguish entry headers.
