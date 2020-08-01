@@ -54,4 +54,10 @@ alias dcps='docker-compose ps'
 alias pjson='python -m json.tool'
 
 alias lg='ledger'
-alias lgbal='ledger balance -V --price-db prices.db'
+alias lgbal='ledger balance -V'
+alias lgreg='ledger reg -V --sort date'
+alias lgbud='ledger --budget --monthly -p "this month" register ^expenses'
+alias lgpri='ledger pricedb'
+
+# navigation
+alias mvd='mv $HOME/Downloads/'

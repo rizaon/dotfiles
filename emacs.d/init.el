@@ -51,6 +51,8 @@ There are two things you can do about this warning:
    (require 'darwin) ; share clipboard with pbcopy-pbpaste
    ))
 
+;; option for org-mode
+; (setq org-startup-truncated nil) ; no wrap
 
 ;; Everything below here is MELPA packages installation and config
 
@@ -96,7 +98,7 @@ There are two things you can do about this warning:
   :init
   ;; max commit message length for impala is 72. emacs default to 70.
   ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
-  (set-fill-column 72)
+  (setq fill-column 72)
   )
 
 ;; markdown-mode
@@ -118,7 +120,8 @@ There are two things you can do about this warning:
 (use-package org-bullets
   :ensure t
   :init
-  (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+  ; (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+  (setq org-log-done 'time)
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
