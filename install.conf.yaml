@@ -32,3 +32,4 @@
     - [git update-submodules, Installing submodules]
     # - [git upgrade-submodules, Upgrade submodules]
     - [~/.fzf/install, Installing fzf]
+    - [./vim/bundle/YouCompleteMe/install.py --clangd-completer, Compiling YouCompleteMe]
