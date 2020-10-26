@@ -21,3 +21,7 @@ source ~/.shell/alias.sh
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
