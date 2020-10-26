@@ -25,6 +25,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " fugitive
 Plugin 'tpope/vim-fugitive'
 
+" vim-highlight
+Plugin 'jaxbot/semantic-highlight.vim'
+
 " souffle.vim
 Plugin 'souffle-lang/souffle.vim'
 

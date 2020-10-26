@@ -43,3 +43,6 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
+[submodule "vim/bundle/semantic-highlight.vim"]
+	path = vim/bundle/semantic-highlight.vim
+	url = https://github.com/jaxbot/semantic-highlight.vim.git
