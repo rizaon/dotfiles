@@ -21,18 +21,22 @@ source ~/.shell/env.sh
 # aliases
 source ~/.shell/alias.sh
 
+# source local zshrc
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
+fi
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Cloudera specific scripts
 source ~/.shell/cloudera.sh
 
 # load Cloudera aws-okta script
 source ~/.shell/bashrc_aws-okta
 
-# source local zshrc
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
-
 # source local dwx env
 if [ -f ~/.dwx_rc.sh ]; then
     source ~/.dwx_rc.sh
 fi
+

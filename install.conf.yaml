@@ -13,6 +13,7 @@
     # ~/.dir_colors: 'dircolors/dircolors.256dark-bold'
     ~/.dir_colors: 'dircolors/gruvbox.dircolors'
     ~/.emacs.d:
+    ~/.fzf:
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.oh-my-zsh:
@@ -30,3 +31,4 @@
     # the following have to run after linking ~/.gitconfig
     - [git update-submodules, Installing submodules]
     # - [git upgrade-submodules, Upgrade submodules]
+    - [~/.fzf/install, Installing fzf]

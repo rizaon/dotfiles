@@ -24,9 +24,9 @@ There are two things you can do about this warning:
 (autoload 'jrnl-mode "jrnl-mode.el" "..." t)
 
 ;; Make Org mode work with files ending in .org
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode) t)
 ;; JRNL highlighting
-(add-to-list 'auto-mode-alist '("\\.jrnl$" . jrnl-mode))
+(add-to-list 'auto-mode-alist '("\\.jrnl$" . jrnl-mode) t)
 
 ;; Alternative key for fill paragraph. Default is "M-q".
 ;; (global-set-key "\C-xx" 'fill-paragraph)
@@ -52,6 +52,7 @@ There are two things you can do about this warning:
    ))
 
 ;; option for org-mode
+(require 'org-tempo)
 ; (setq org-startup-truncated nil) ; no wrap
 
 ;; Everything below here is MELPA packages installation and config
@@ -140,3 +141,6 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; enable jrnl-mode when invoking `jrnl --edit` command.
+(add-to-list 'auto-mode-alist '("jrnl........\\.txt$" . jrnl-mode))

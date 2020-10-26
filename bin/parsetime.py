@@ -5,9 +5,12 @@ RE_H = re.compile('([0-9\.]+)h')
 RE_M = re.compile('([0-9\.]+)m')
 RE_S = re.compile('([0-9\.]+)s')
 RE_MS = re.compile('([0-9\.]+)ms')
+RE_US = re.compile('([0-9\.]+)us')
+RE_NS = re.compile('([0-9\.]+)ns')
 
-MULTIPLIER = [1, 1000, 60*1000, 60*60*1000]
-RE = [RE_MS, RE_S, RE_M, RE_H]
+
+MULTIPLIER = [10**-3, 1, 10**3, 10**6, 60*10**6, 60*60*10**6]
+RE = [RE_NS, RE_US, RE_MS, RE_S, RE_M, RE_H]
 
 def parse(line):
   total_ms = 0
