@@ -29,7 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'souffle-lang/souffle.vim'
 
 " vim-gitgutter
-" Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -73,4 +73,8 @@ imap jj <Esc>
 
 " enable powerline fonts for airline
 let g:airline_powerline_fonts = 1
+
+" for faster gitgutter
+set updatetime=1000
+let g:gitgutter_enabled = 0
 
