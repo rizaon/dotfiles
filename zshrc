@@ -21,11 +21,6 @@ source ~/.shell/env.sh
 # aliases
 source ~/.shell/alias.sh
 
-# source local zshrc
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
-fi
-
 # enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -38,5 +33,10 @@ source ~/.shell/bashrc_aws-okta
 # source local dwx env
 if [ -f ~/.dwx_rc.sh ]; then
     source ~/.dwx_rc.sh
+fi
+
+# source local zshrc
+if [ -f ~/.zshrc_local ]; then
+    source ~/.zshrc_local
 fi
 
