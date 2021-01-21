@@ -4,7 +4,7 @@ export GERRIT_USER="rizaon"
 export IMPALA_HOME=$WORKSPACE/impala
 
 # enter impala home and source its config
-imp() {
+enter-impala() {
     cd $IMPALA_HOME
     source $IMPALA_HOME/bin/impala-config.sh
 }
@@ -18,9 +18,6 @@ branch-master() {
 fetch-aws-key() {
     ssh s3@cloudcat.infra.cloudera.com impaladev
 }
-
-# rebase based on asf-gerrit/master
-alias "rebase-master"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
 
 ide-impala() {
     cd $IMPALA_HOME
@@ -50,3 +47,12 @@ jptt() {
     # Forwards port $1 into port $2 and listens to it
     ssh -N -L localhost:${remote_port}:localhost:${local_port} lars
 }
+
+
+# rebase based on asf-gerrit/master
+alias "rebase-master"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
+alias imptest="impala-py.test"
+alias impflake8="impala-flake8"
+alias impstart="start-impala-cluster.py"
+alias impkill="start-impala-cluster.py --kill"
+
