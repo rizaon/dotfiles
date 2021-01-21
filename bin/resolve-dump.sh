@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-$IMPALA_TOOLCHAIN/breakpad-$IMPALA_BREAKPAD_VERSION/bin/minidump_stackwalk $1 \
-    /tmp/syms > /tmp/resolved.txt
+$IMPALA_TOOLCHAIN_PACKAGES_HOME/breakpad-$IMPALA_BREAKPAD_VERSION/bin/minidump_stackwalk \
+    $1 /tmp/syms > /tmp/resolved.txt
 
