@@ -1,8 +1,4 @@
 #!/bin/bash
-# Set up a path to Go. Adjust for your platform, as required.
-[[ -f /usr/local/go/bin/go ]] && export PATH=$PATH:/usr/local/go/bin
-# If golang is installed, 'go get <github url>' will install binaries here:
-[[ -d $HOME/go/bin ]] && export PATH=$PATH:$HOME/go/bin
 ##############################################################################
 # Description:
 #    `ao-config` is a configuration function to help grab the latest and greatest config (from Git) for `aws-okta` (`ao`) SSO.
@@ -13,8 +9,10 @@
 #
 if type -p aws-okta > /dev/null; then
     [[ $(uname) == 'Linux' ]] && export AWS_OKTA_BACKEND='secret-service' # Linux only.
+    export AWS_SESSION_TTL=4h
     alias ao='aws-okta'
     alias aoc='ao-config'
+    alias aod='ao-debug'
     alias aoh='ao-help'
     alias aoe='ao exec'
     alias aol='ao-shortcut login'
@@ -38,43 +36,40 @@ if type -p aws-okta > /dev/null; then
             esac
         fi
     }
-    function ao-config(){
+    function ao-config() {
         AOC='AO_CONFIG.sh'
         LOCAL_AOC="$HOME/.aws/$AOC"
         SOURCE_AOC="https://github.infra.cloudera.com/raw/SRE/sre/master/terraform/modules/cloud-users/ao_config/${AOC}"
         [[ -d "$HOME/.aws" ]] || mkdir -vp "$HOME/.aws"
-        if [[ ! -z "$1" ]]; then
-            if [[ -f "$LOCAL_AOC" ]]; then
-                echo "Using local manifest and attempting to load config: $1"
-                "$LOCAL_AOC" "$1"
-            else
-                echo "Not found: $LOCAL_AOC"
-                echo "Resetting."
-                exec "$0"
-            fi
+
+        type -p curl > /dev/null
+        type_exit=$?
+        if (( type_exit != 0 )); then
+            echo "Unable to configure without 'curl' command."
+            echo 'Aborting.'
+            return 1
         else
-            type -p curl > /dev/null
-            type_exit=$?
-            if (( type_exit != 0 )); then
-                echo "Unable to configure without 'curl' command."
+            echo "Fetching latest config script."
+            rm -f "$LOCAL_AOC"
+            curl --location --silent "${SOURCE_AOC}" --output "$LOCAL_AOC"
+            curl_exit=$?
+            if (( curl_exit != 0 )); then
+                echo "Fetch had a bad exit code ($curl_exit) for: $SOURCE_AOC"
                 echo 'Aborting.'
-            else
-                echo "Fetching latest config script."
-                rm -f "$LOCAL_AOC"
-                curl --location --silent "${SOURCE_AOC}" --output "$LOCAL_AOC"
-                curl_exit=$?
-                if (( curl_exit != 0 )); then
-                    echo "Fetch had a bad exit code ($curl_exit) for: $SOURCE_AOC"
-                    echo 'Aborting.'
-                elif [[ ! -f "$LOCAL_AOC" ]]; then
-                    echo 'Configuration script failed to download.'
-                    echo 'Aborting.'
-                else
-                    echo 'Launching the configuration script.'
-                    chmod +x "$LOCAL_AOC"
-                    "$LOCAL_AOC"
-                fi
+                return 1
+            elif [[ ! -f "$LOCAL_AOC" ]]; then
+                echo 'Configuration script failed to download.'
+                echo 'Aborting.'
+                return 1
             fi
+						chmod +x "$LOCAL_AOC"
+        fi
+        if [[ -n "$1" ]]; then
+            "$LOCAL_AOC" "$1"
+        else
+            echo 'Launching the configuration script.'
+            chmod +x "$LOCAL_AOC"
+            "$LOCAL_AOC"
         fi
     }
     #
@@ -86,6 +81,15 @@ if type -p aws-okta > /dev/null; then
         grep -E '# Generated: ' "$HOME"/.aws/config | awk '{print $3}'
         echo "AWS_OKTA_BACKEND=$AWS_OKTA_BACKEND"
         uname -a
+        echo "\"ao-debug <profile>\" may also be helpful."
+    }
+    #
+    function ao-debug(){
+        if [[ -z "$1" ]]; then
+            echo "ao-debug <profile>"
+        else
+            aws-okta -d env "$1" | grep -Ev 'TOKEN|SECRET'
+        fi
     }
     #
     _ao_autocomplete(){
