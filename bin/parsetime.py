@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os,re,sys
+import argparse
 
 RE_H = re.compile('([0-9\.]+)h')
 RE_M = re.compile('([0-9\.]+)m')
@@ -21,14 +22,22 @@ def parse(line):
       num = m[0]
       total_ms += float(num) * MULTIPLIER[i]
       lit = RE[i].sub('',lit)
-  print(int(total_ms))
+  return int(total_ms)
 
 def main():
-  if len(sys.argv) > 1:
-    parse(sys.argv[1])
-  else:
-    for line in sys.stdin:
-      parse(line)
+  parser = argparse.ArgumentParser(description="Parse time like 3s202ms to 3202000.")
+  parser.add_argument('infile', nargs='?', type=argparse.FileType('r'),
+      default=sys.stdin, help="Text file containing the data. "
+      + "stdin will be read if argument is not supplied.")
+  parser.add_argument('-i', '--index', type=int, nargs='?', default=1,
+      help="Field number to be processed. Default to 1.")
+  args = parser.parse_args()
+
+  for line in args.infile:
+    res = line
+    parts = list(filter(None, line.split(' ')))
+    subs = str(parse(parts[args.index-1]))
+    print(res.replace(parts[args.index-1], subs))
 
 if __name__ == '__main__':
   main()
