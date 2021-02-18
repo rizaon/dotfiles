@@ -55,4 +55,5 @@ alias imptest="impala-py.test"
 alias impflake8="impala-flake8"
 alias impstart="start-impala-cluster.py"
 alias impkill="start-impala-cluster.py --kill"
-
+alias imptool="docker run -i apache/impala:81d5377c2-impala_profile_tool"
+alias zgrv="$HOME/workspace/zgrviewer-0.10.0/run.sh"
