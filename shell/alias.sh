@@ -7,16 +7,13 @@ alias la='ls -A'
 alias l='ls'
 alias ltail='ls -1v | tail'
 
+# editor aliases
 alias e='editor'
-alias m='make'
-alias mall='make all'
-alias diff='colordiff'
-alias reload='source ~/.zshrc'
-alias zshrc='$EDITOR ~/.zshrc'
+alias vfind='vim `fzf`'
+alias efind='emacs `fzf`'
 
 # git aliases
 alias gdh='git diff HEAD'
-alias bfg='java -jar ~/jars/bfg-1.13.0.jar'
 
 # cd aliases
 alias dotfiles='cd $DOTFILES'
@@ -49,6 +46,11 @@ alias dcps='docker-compose ps'
 
 # some utils
 alias pjson='python -m json.tool'
+alias m='make'
+alias mall='make all'
+alias diff='colordiff'
+alias reload='source ~/.zshrc'
+alias zshrc='$EDITOR ~/.zshrc'
 
 # navigation
 alias mvd='mv $HOME/Downloads/'
