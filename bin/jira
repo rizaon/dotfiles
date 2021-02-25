@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 jid=$1
-url="https://issues.apache.org/jira/browse/$jid"
+url=""
+
+if [[ $jid == CDPD-* || $jid == DWX-* || $jid == ENGESC-* || $jid == IOPS-* ]]; then
+    url="https://jira.cloudera.com/browse/$jid"
+else
+    url="https://issues.apache.org/jira/browse/$jid"
+fi
 
 echo $url
 open $url
