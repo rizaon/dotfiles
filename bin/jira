@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+jid=$1
+url="https://issues.apache.org/jira/browse/$jid"
+
+echo $url
+open $url
