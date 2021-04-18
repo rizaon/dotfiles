@@ -38,5 +38,8 @@
 	path = zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "fzf"]
-	path = fzf
+	path = vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "vim/bundle/fzf.vim"]
+	path = vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
