@@ -48,6 +48,10 @@ jptt() {
     ssh -N -L localhost:${remote_port}:localhost:${local_port} lars
 }
 
+# ssh to halxg
+halxg() {
+    ssh -i ~/.ssh/id_rsa_systest -o StrictHostKeyChecking=no systest@$1.halxg.cloudera.com
+}
 
 # rebase based on asf-gerrit/master
 alias "rebase-master"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
@@ -57,3 +61,4 @@ alias impstart="start-impala-cluster.py"
 alias impkill="start-impala-cluster.py --kill"
 alias imptool="docker run -i apache/impala:81d5377c2-impala_profile_tool"
 alias zgrv="$HOME/workspace/zgrviewer-0.10.0/run.sh"
+
