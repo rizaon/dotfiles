@@ -8,7 +8,7 @@
 - link:
     ~/.autojump:
     ~/.colordiffrc:
-    ~/.config/nvim/init.vim: 'config/nvim/init.vim'
+    ~/.config/nvim : 'config/nvim'
     ~/.config/pep8 : 'config/pep8'
     # ~/.dir_colors: 'dircolors/dircolors.256dark-bold'
     ~/.dir_colors: 'dircolors/gruvbox.dircolors'

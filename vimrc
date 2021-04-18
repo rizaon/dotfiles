@@ -89,10 +89,18 @@ let g:airline_powerline_fonts = 1
 set updatetime=1000
 let g:gitgutter_enabled = 0
 
+" Find file in directory
+silent! nmap <C-P> :Files<CR>
+
+" Find file registered in repository (Git)
+silent! nmap <C-G> :GFiles<CR>
+
+" Find file contaning string/regex
+silent! nmap <C-f> :Rg!
+
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
 " Disable auto suggestion
 let g:ycm_min_num_of_chars_for_completion = 99
-
