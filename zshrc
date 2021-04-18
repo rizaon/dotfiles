@@ -21,7 +21,6 @@ source ~/.shell/env.sh
 # aliases
 source ~/.shell/alias.sh
 
-# enable fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Cloudera specific scripts

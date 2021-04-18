@@ -17,6 +17,7 @@ export JIRA_REPO=$UCARE_DIR/jira-study-db-svn
 export ALL_PDF_FILES=$HOME/my-pdfs
 export WORKSPACE=$HOME/workspace
 export EDITOR=vim
+export K9S_EDITOR=vim
 export DOTFILES=$HOME/dotfiles
 #export TEXINPUTS=~/pgfplots//:
 

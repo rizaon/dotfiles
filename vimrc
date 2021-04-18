@@ -34,6 +34,10 @@ Plugin 'souffle-lang/souffle.vim'
 " vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
 
+" fzf
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
 " C++ autocomplete for vim
 Plugin 'Valloric/YouCompleteMe'
 
