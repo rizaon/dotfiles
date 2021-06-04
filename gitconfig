@@ -25,6 +25,12 @@
     name = Riza Suminto
     email = riza.suminto@cloudera.com
 
+[credential]
+    helper = cache --timeout=3600
+
+[reviewboard]
+    url = http://review.mtv.cloudera.com
+
 [push]
     default = simple
 
@@ -44,4 +50,4 @@
     smudge = git-lfs smudge -- %f
 
 [log]
-        decorate = auto
+    decorate = auto
