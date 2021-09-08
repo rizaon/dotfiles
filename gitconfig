@@ -44,4 +44,7 @@
     smudge = git-lfs smudge -- %f
 
 [log]
-        decorate = auto
+    decorate = auto
+
+[pull]
+    ff = only
