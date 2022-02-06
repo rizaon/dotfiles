@@ -33,6 +33,7 @@
 
 [core]
     excludesfile = ~/.gitignore_global
+    abbrev = 7
 
 [stash]
     showPatch = true

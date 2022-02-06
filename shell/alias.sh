@@ -14,6 +14,7 @@ alias efind='emacs `fzf`'
 
 # git aliases
 alias gdh='git diff HEAD'
+alias gbranch='git branch --format="%(color:red) %(refname:short) %(color:reset) %(contents:subject)"'
 
 # cd aliases
 alias dotfiles='cd $DOTFILES'
