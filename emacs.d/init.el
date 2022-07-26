@@ -54,6 +54,8 @@ There are two things you can do about this warning:
 ;; option for org-mode
 (require 'org-tempo)
 ; (setq org-startup-truncated nil) ; no wrap
+(setq org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
 
 ;; Everything below here is MELPA packages installation and config
 
