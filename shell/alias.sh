@@ -47,6 +47,8 @@ alias dcx='docker-compose exec'
 alias dcps='docker-compose ps'
 
 # some utils
+alias find_ssh_tmux='eval $(tmux show-env -s |grep "^SSH_")'
+alias myflake8='flake8 --config ~/.config/flake8'
 alias pjson='python -m json.tool'
 alias m='make'
 alias mall='make all'

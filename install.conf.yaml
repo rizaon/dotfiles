@@ -8,6 +8,7 @@
 - link:
     ~/.autojump:
     ~/.colordiffrc:
+    ~/.config/flake8 : 'config/flake8'
     ~/.config/nvim : 'config/nvim'
     ~/.config/pep8 : 'config/pep8'
     # ~/.dir_colors: 'dircolors/dircolors.256dark-bold'
