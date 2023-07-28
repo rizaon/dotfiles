@@ -20,6 +20,12 @@ pathadd() {
   fi
 }
 
+gbgrep() {
+  git branch --sort=-committerdate \
+      --format="%(color:red) %(refname:short) %(color:reset) %(contents:subject)" \
+      | grep $1
+}
+
 gshell() {
   gext sh "$@"
 }
