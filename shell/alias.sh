@@ -16,6 +16,7 @@ alias efind='emacs `fzf`'
 alias gdh='git diff HEAD'
 alias gb='git branch --format="%(color:red) %(refname:short) %(color:reset) %(contents:subject)"'
 alias gbcd='gb --sort=-committerdate'
+alias git_log_org='git log --format="** %s%n%ncommit %H%nAuthor: %an <%ae>%nDate: %ad%n%n%b"'
 
 # cd aliases
 alias dotfiles='cd $DOTFILES'
@@ -47,11 +48,13 @@ alias dcx='docker-compose exec'
 alias dcps='docker-compose ps'
 
 # some utils
+alias find_ssh_agent='unset SSH_AUTH_SOCK && ssh_find_agent -a && ssh-add -l'
 alias find_ssh_tmux='eval $(tmux show-env -s |grep "^SSH_")'
 alias myflake8='flake8 --config ~/.config/flake8'
 alias pjson='python -m json.tool'
 alias m='make'
 alias mall='make all'
+alias nocheck_ssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=publickey'
 alias diff='colordiff'
 alias reload='source ~/.zshrc'
 alias zshrc='$EDITOR ~/.zshrc'
