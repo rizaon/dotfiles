@@ -29,15 +29,20 @@ def main():
   parser.add_argument('infile', nargs='?', type=argparse.FileType('r'),
       default=sys.stdin, help="Text file containing the data. "
       + "stdin will be read if argument is not supplied.")
-  parser.add_argument('-i', '--index', type=int, nargs='?', default=1,
+  parser.add_argument('-i', '--index', type=int, nargs='+', default=[1],
       help="Field number to be processed. Default to 1.")
+  parser.add_argument('-d', '--divisor', type=int, nargs='?', default=1,
+      help="Integer divisor that will be applied to the nanosecond result.")
   args = parser.parse_args()
 
   for line in args.infile:
-    res = line
+    res = line.strip()
     parts = list(filter(None, line.split(' ')))
-    subs = str(parse(parts[args.index-1]))
-    print(res.replace(parts[args.index-1], subs))
+    for idx in args.index:
+      piece = parts[idx-1].strip()
+      subs = str(parse(piece) / args.divisor)
+      res = res.replace(piece, subs)
+    print(res)
 
 if __name__ == '__main__':
   main()
