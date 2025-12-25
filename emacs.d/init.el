@@ -95,14 +95,15 @@ There are two things you can do about this warning:
   :ensure t
   :config (helm-mode t))
 
-;; git-mode
-(use-package git-commit
-  :ensure t
-  :init
-  ;; max commit message length for impala is 72. emacs default to 70.
-  ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
-  (setq fill-column 72)
-  )
+;; git-mode.
+;; Magit suppose to be the default now, so disable this.
+;; (use-package git-commit
+;;   :ensure t
+;;   :init
+;;   ;; max commit message length for impala is 72. emacs default to 70.
+;;   ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
+;;   (setq fill-column 72)
+;;   )
 
 ;; markdown-mode
 (use-package markdown-mode
@@ -135,8 +136,7 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (git-commit helm ledger-mode company gruvbox-theme use-package))))
+   '(git-commit helm ledger-mode company gruvbox-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

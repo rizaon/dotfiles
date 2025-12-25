@@ -11,7 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " theme
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'morhetz/gruvbox'
 
 " for markdown
@@ -23,10 +23,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " fugitive
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 " souffle.vim
-Plugin 'souffle-lang/souffle.vim'
+" Plugin 'souffle-lang/souffle.vim'
 
 " vim-gitgutter
 Plugin 'airblade/vim-gitgutter'
@@ -55,7 +55,7 @@ set textwidth=120
 
 
 " appearances and behavior
-"set number
+" set number
 set ruler
 set hlsearch
 
