@@ -41,3 +41,10 @@ gphp() {
 refreshgpg() {
   echo "UPDATESTARTUPTTY" | gpg-connect-agent > /dev/null 2>&1
 }
+
+cogerrit() {
+  remote=$1
+  new_branch=$2
+  ref=$3
+  git fetch ${remote} ${ref} && git co -b ${new_branch} FETCH_HEAD
+}
