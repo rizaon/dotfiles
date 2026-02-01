@@ -95,15 +95,17 @@ There are two things you can do about this warning:
   :ensure t
   :config (helm-mode t))
 
-;; git-mode.
-;; Magit suppose to be the default now, so disable this.
-;; (use-package git-commit
-;;   :ensure t
-;;   :init
-;;   ;; max commit message length for impala is 72. emacs default to 70.
-;;   ;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
-;;   (setq fill-column 72)
-;;   )
+;; max commit message length for impala is 72. emacs default to 70.
+;; https://cwiki.apache.org/confluence/display/IMPALA/Contributing+to+Impala
+(defun git-commit-message-max-length () (setq fill-column 72))
+;; magit
+(use-package magit
+  :ensure t
+  :config
+  ;; Add functions to the git-commit-setup-hook
+  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-auto-fill)
+  (add-hook 'git-commit-setup-hook #'git-commit-turn-on-flyspell)
+  (add-hook 'git-commit-setup-hook #'git-commit-message-max-length))
 
 ;; markdown-mode
 (use-package markdown-mode

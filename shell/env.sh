@@ -28,7 +28,7 @@ export GPG_TTY=$(tty)
 pathadd ~/bin
 
 # GNU coreutils path on Homebrew
-gnubin="/usr/local/opt/coreutils/libexec/gnubin"
+gnubin="/opt/homebrew/opt/coreutils/libexec/gnubin"
 if [ -d "$gnubin" ]; then
     pathadd $gnubin
 
